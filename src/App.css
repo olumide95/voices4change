@@ -1,38 +1,217 @@
-.App {
+body {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  background: #6bb6ff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+}
+
+.form-box {
+  padding: 50px;
+}
+
+.background-form {
+  background-image: url(https://images.unsplash.com/photo-1511898634545-c01af8a54dd5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2020&q=auto);
+  height: 900px;
+  width: 100%;
+  background-position: center;
+  background-color: #0b57e0;
+  background-blend-mode: soft-light;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.4);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.background-form {
+  padding: 75px;
+  text-align: left;
+}
+.background-form h1 {
+  font-size: 120px;
+  letter-spacing: 12px;
+  line-height: 100px;
+  -webkit-text-shadow: -1.5px 3px #0742d6;
+  -ms-text-shadow: -1.5px 3px #0742d6;
+  text-shadow: -1.5px 3px #0742d6;
+}
+.background-form .info-small {
+  padding-top: 25px;
+  font-size: 18px;
+}
+.background-form .info-second {
+  bottom: 0%;
+  position: absolute;
+  font-size: 14px;
+}
+.background-form .logo {
+  margin-top: 150px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form {
+  color: #333;
+  padding-top: 50px;
+  height: 900px;
+  background: #ffffff;
+  text-align: center;
+}
+.form .info-second {
+  margin-top: 25px;
+  font-size: 12px;
+  margin-bottom: 75px;
+}
+.form form {
+  width: 80%;
+  margin: 0px auto;
+}
+.form .form-control {
+  padding: 20px;
+  border-bottom: 1.5px solid #0099f7;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-radius: 0px;
+  position: relative;
+  height: 50px;
+}
+.form .form-control:focus {
+  color: #495057;
+  background-color: #ffffff;
+  border-color: #lightblue;
+  box-shadow: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.inputarea {
+  margin-bottom: 50px;
+  position: relative;
+}
+
+small {
+  position: absolute;
+  left: 0px;
+  bottom: 10px;
+  font-size: 20px;
+  color: #94a4ae;
+  transition: 0.88s;
+}
+small:hover {
+  bottom: 20px;
+  transition: 0.88s;
+}
+
+.container {
+  -webkit-box-shadow: 0px 0px 10px 0.9px #0c68be;
+  -ms-box-shadow: 0px 0px 10px 0.9px #0c68be;
+  box-shadow: 0px 0px 10px 0.9px #0c68be;
+}
+
+.blue {
+  color: #0b57e0;
+  font-size: 14px;
+}
+
+.btn-green {
+  background: #6bb6ff;
   color: white;
+  font-size: 20px;
+  padding: 10px 50px;
+  font-weight: bold;
+  border-radius: 30px;
+  -ms-box-shadow: 0px 0px 18px 0.8px #5bbaab;
+  box-shadow: 0px 0px 18px 0.8px #6bb6ffa3;
+}
+.btn-green:hover {
+  background: #6bb6ff;
+  -webkit-box-shadow: 0px 0px 18px 0.8px #6bb6ffa3;
+  -ms-box-shadow: 0px 0px 18px 0.8px #6bb6ffa3;
+  box-shadow: 0px 0px 18px 0.8px #6bb6ff;
 }
 
-.App-link {
-  color: #61dafb;
+.btn:focus {
+  box-shadow: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.subbtn {
+  float: right;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+.form-field {
+  position: relative;
+  padding-top: 25px;
+  margin-bottom: 25px;
+}
+
+.form-label {
+  width: 100%;
+  position: absolute;
+  top: 25px;
+  bottom: 0px;
+  left: 10px;
+  text-align: left;
+  transition: 0.88s;
+}
+.form .form-control {
+  padding: 0px;
+}
+.select.form-label {
+  position: initial !important;
+}
+.form select.form-control {
+  padding: 0px;
+}
+textarea {
+  resize: none;
+}
+@media only screen and (max-width: 1200px) {
+  .background-form h1 {
+    font-size: 80px;
+    line-height: 73px;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media only screen and (max-width: 992px) {
+  .background-form {
+    height: 600px;
+  }
+  .background-form .logo {
+    margin-top: 50px;
+  }
+
+  .form .info-second {
+    margin-bottom: 25px;
+  }
+}
+@media only screen and (max-width: 992px) and (max-width: 768px) {
+  .background-form {
+    height: 500px;
+    padding: 50px;
+    background-position: top center;
+  }
+}
+@media only screen and (min-width: 576px) {
+  .form-box {
+    padding: 25px;
+  }
+
+  .background-form h1 {
+    font-size: 60px;
+    line-height: 58px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .background-form {
+    display: none;
+  }
+
+  .form-box {
+    padding: 10px;
   }
 }
