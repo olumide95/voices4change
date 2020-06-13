@@ -3,6 +3,9 @@ import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+
+import { ApiService } from "./Services/Api.service";
+ApiService.init("http://127.0.0.1:8000/api");
 ReactDOM.render(
   <React.StrictMode>
     <App />
