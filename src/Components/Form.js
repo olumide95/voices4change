@@ -1,18 +1,28 @@
 import React, { Component } from "react";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
+import { ApiService } from "../Services/Api.service";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: "",
       country: "",
       region: "",
       motivation: "",
+      otherMotivation: "",
       message: "",
       showOtherMotivation: false,
+      loading: false,
     };
-  }
 
+    this.baseState = this.state;
+  }
+  resetForm = () => {
+    this.setState(this.baseState);
+  };
   selectCountry(val) {
     this.setState({ country: val });
   }
@@ -23,6 +33,10 @@ export default class Form extends Component {
 
   setName(event) {
     this.setState({ name: event.target.value });
+  }
+
+  setOtherMotivation(event) {
+    this.setState({ otherMotivation: event.target.value });
   }
 
   setMotivation(event) {
@@ -37,8 +51,39 @@ export default class Form extends Component {
     this.setState({ message: event.target.value });
   }
 
+  handleSubmit() {
+    this.setState({ loading: true });
+    let motivation =
+      this.state.motivation === "Other"
+        ? this.state.otherMotivation
+        : this.state.motivation;
+    ApiService.submit(
+      this.state.name,
+      this.state.country,
+      this.state.region,
+      motivation,
+      this.state.message
+    )
+      .then((res) => {
+        this.resetForm();
+        toast.success("Your Submission was successfull!");
+      })
+      .catch((err) => {
+        this.resetForm();
+        toast.error("Error summiting response, Try again!");
+      });
+  }
+
   render() {
     const { country, region } = this.state;
+    let disabled = this.state.loading ? "disabled" : "";
+    let spinner = this.state.loading ? (
+      <span className="spinner-border spinner-border-sm spin-icon">
+        {"     "}
+      </span>
+    ) : (
+      ""
+    );
     let showState =
       this.state.country === "United States" ? (
         <div className="form-field">
@@ -52,6 +97,7 @@ export default class Form extends Component {
             country={country}
             value={region}
             onChange={(val) => this.selectRegion(val)}
+            required
           />
         </div>
       ) : (
@@ -66,6 +112,8 @@ export default class Form extends Component {
         id="otherMotivation"
         required
         placeholder="Other motivation..."
+        onChange={(event) => this.setOtherMotivation(event)}
+        value={this.state.otherMotivation}
       />
     ) : (
       ""
@@ -75,12 +123,7 @@ export default class Form extends Component {
         className="formdesg"
         onSubmit={(e) => {
           e.preventDefault();
-          this.handleSubmit(
-            this.state.name,
-            this.state.email,
-            this.state.password,
-            this.state.confirm_password
-          );
+          this.handleSubmit();
         }}
       >
         <div className="inputarea">
@@ -96,7 +139,8 @@ export default class Form extends Component {
               name="name"
               id="name"
               required
-              onInput={(val) => this.setName(val)}
+              value={this.state.name}
+              onChange={(val) => this.setName(val)}
             />
           </div>
 
@@ -110,6 +154,7 @@ export default class Form extends Component {
               id="country"
               value={country}
               onChange={(val) => this.selectCountry(val)}
+              required
             />
           </div>
 
@@ -126,6 +171,7 @@ export default class Form extends Component {
               className="form-control floating-select"
               name="motivation"
               id="motivation"
+              value={this.state.motivation}
               required
               onChange={(event) => this.setMotivation(event)}
             >
@@ -151,7 +197,8 @@ export default class Form extends Component {
           <div className="form-field">
             <label htmlFor="motivation" className="select form-label">
               <span className="form-label-content">
-                What message that was on your placcard?
+                What message that was on your sign/poster/banner/placard during
+                the protests?
               </span>
             </label>
             <textarea
@@ -161,14 +208,20 @@ export default class Form extends Component {
               type="text"
               name="message"
               id="message"
-              placeholder="Type the message that was on your placcard"
-              onInput={(event) => this.setMessage(event)}
+              placeholder="Type the message"
+              onChange={(event) => this.setMessage(event)}
               required
+              value={this.state.message}
             ></textarea>
           </div>
 
           <div className="subbtn">
-            <button className="btn btn-green" type="Submit">
+            <button
+              className="btn btn-transparent"
+              type="Submit"
+              disabled={disabled}
+            >
+              {spinner} {"     "}
               Submit
             </button>
           </div>

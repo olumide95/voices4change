@@ -5,7 +5,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 import { ApiService } from "./Services/Api.service";
-ApiService.init("http://127.0.0.1:8000/api");
+ApiService.init("http://127.0.0.1:8000");
 ReactDOM.render(
   <React.StrictMode>
     <App />

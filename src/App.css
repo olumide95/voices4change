@@ -14,13 +14,22 @@ h6 {
   font-weight: bold;
 }
 
+.about-text {
+  text-align: justify;
+  font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman",
+    Times, serif;
+}
+
+.about-head {
+}
+
 .form-box {
   padding: 50px;
 }
 
 .background-form {
   background-image: url(https://images.unsplash.com/photo-1511898634545-c01af8a54dd5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2020&q=auto);
-  height: 900px;
+  height: 980px;
   width: 100%;
   background-position: center;
   background-color: #0b57e0;
@@ -58,7 +67,7 @@ h6 {
 .form {
   color: #333;
   padding-top: 50px;
-  height: 900px;
+  height: 980px;
   background: #ffffff;
   text-align: center;
 }
@@ -107,6 +116,7 @@ small:hover {
 }
 
 .container {
+  overflow: hidden;
   -webkit-box-shadow: 0px 0px 10px 0.9px #0c68be;
   -ms-box-shadow: 0px 0px 10px 0.9px #0c68be;
   box-shadow: 0px 0px 10px 0.9px #0c68be;
@@ -117,6 +127,24 @@ small:hover {
   font-size: 14px;
 }
 
+.btn-transparent {
+  font-size: 20px;
+  padding: 10px 50px;
+  font-weight: bold;
+  background: white;
+  border-radius: 30px;
+  border-color: #6bb6ff;
+}
+
+.btn-transparent:hover {
+  background: #6bb6ff;
+  color: white;
+  font-size: 20px;
+  padding: 10px 50px;
+  font-weight: bold;
+  border-radius: 30px;
+}
+
 .btn-green {
   background: #6bb6ff;
   color: white;
@@ -124,14 +152,11 @@ small:hover {
   padding: 10px 50px;
   font-weight: bold;
   border-radius: 30px;
-  -ms-box-shadow: 0px 0px 18px 0.8px #5bbaab;
-  box-shadow: 0px 0px 18px 0.8px #6bb6ffa3;
 }
 .btn-green:hover {
-  background: #6bb6ff;
-  -webkit-box-shadow: 0px 0px 18px 0.8px #6bb6ffa3;
-  -ms-box-shadow: 0px 0px 18px 0.8px #6bb6ffa3;
-  box-shadow: 0px 0px 18px 0.8px #6bb6ff;
+  background: white;
+  border-radius: 30px;
+  border-color: #6bb6ff;
 }
 
 .btn:focus {
@@ -157,7 +182,11 @@ small:hover {
   bottom: 0px;
   left: 10px;
   text-align: left;
-  transition: 0.88s;
+}
+
+.spin-icon {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 .form .form-control {
   padding: 0px;
@@ -207,6 +236,9 @@ textarea {
   }
 }
 @media only screen and (max-width: 576px) {
+  .form {
+    height: 100%;
+  }
   .background-form {
     display: none;
   }
@@ -214,4 +246,31 @@ textarea {
   .form-box {
     padding: 10px;
   }
+
+  .subbtn {
+    float: none;
+  }
+  .slide-to-back {
+    margin-bottom: 5%;
+  }
+}
+.slide-to-form {
+  text-align: right;
+  float: right;
+  font-weight: bold;
+}
+.row {
+  background-color: white;
+  flex-wrap: nowrap;
+}
+
+/* ANIMATIONS */
+.slide-out {
+  transform: translateX(0%);
+  transition: all 100ms ease;
+}
+
+.slide-in {
+  transform: translateY(0%);
+  transition: all 100ms ease;
 }

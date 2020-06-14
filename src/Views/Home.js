@@ -3,6 +3,10 @@ import FormBox from "../Components/FormBox";
 
 export default class Home extends Component {
   render() {
-    return <FormBox />;
+    return (
+      <div>
+        <FormBox />
+      </div>
+    );
   }
 }
