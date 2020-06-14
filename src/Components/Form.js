@@ -163,7 +163,7 @@ export default class Form extends Component {
           <div className="form-field">
             <label htmlFor="motivation" className="select form-label">
               <span className="form-label-content">
-                What issue motivated you to go out to and protest?
+                What issue motivated you to go out and protest?
               </span>
             </label>
 
