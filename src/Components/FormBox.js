@@ -21,9 +21,24 @@ export default class FormBox extends Component {
         className={
           this.state.showForm
             ? "form slide-out "
-            : " slide-in col-lg-6 col-12  form"
+            : " slide-in col-lg-6 col-12  form left"
         }
       >
+        {this.state.showForm ? (
+          ""
+        ) : (
+          <div className="row">
+            <div className="col-12">
+              <button
+                onClick={(event) => this.slideRight(event)}
+                className="btn btn-transparent-black slide-to-back"
+              >
+                Speak Out
+              </button>
+            </div>
+          </div>
+        )}
+
         {this.state.showForm ? "" : <About />}
         {this.state.showForm ? (
           ""

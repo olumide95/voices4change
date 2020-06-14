@@ -4,10 +4,7 @@ export default class About extends Component {
   render() {
     return (
       <div className="formdesg">
-        <h4 className="about-head">
-          AMPLIFYING THE VOICES OF CHANGE.{"    "}
-          <i className="slide-to-form fa fa-arrow-circle-right"></i>
-        </h4>
+        <h4 className="about-head">AMPLIFYING THE VOICES OF CHANGE.{"    "}</h4>
         <p className="about-text">
           The death of Mr George Floyd, a black American man, on an obscure
           Minneapolis street corner, under the knee of a white police officer

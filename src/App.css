@@ -21,6 +21,7 @@ h6 {
 }
 
 .about-head {
+  text-align: center;
 }
 
 .form-box {
@@ -122,9 +123,30 @@ small:hover {
   box-shadow: 0px 0px 10px 0.9px #0c68be;
 }
 
+.form.left {
+  padding-top: 20px;
+}
 .blue {
   color: #0b57e0;
   font-size: 14px;
+}
+
+.btn-transparent-black {
+  float: right;
+  font-size: 10px;
+  font-weight: bold;
+  background: white;
+  border-radius: 5px;
+  border-color: #6bb6ff;
+  margin-bottom: 1%;
+}
+
+.btn-transparent-black:hover {
+  background: #6bb6ff;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
 .btn-transparent {
@@ -253,8 +275,18 @@ textarea {
   .slide-to-back {
     margin-bottom: 5%;
   }
+
+  .about-head {
+    text-align: left;
+  }
+}
+
+.slide-to-form-top {
+  text-align: left;
+  float: left;
 }
 .slide-to-form {
+  cursor: pointer;
   text-align: right;
   float: right;
   font-weight: bold;
