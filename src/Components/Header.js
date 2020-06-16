@@ -31,7 +31,7 @@ class Header extends Component {
             PARTNER WITH US
           </a>
           <button
-            className="btn btn-transparent-home  top-btn no-outline my-2 my-sm-0"
+            className="btn btn-transparent-home donate  top-btn no-outline my-2 my-sm-0"
             type="submit"
           >
             DONATE
@@ -67,7 +67,7 @@ class Header extends Component {
               PARTNER WITH US
             </a>
             <button
-              className="btn btn-transparent-home  top-btn no-outline my-2 my-sm-0"
+              className="btn btn-transparent-home donate  top-btn no-outline my-2 my-sm-0"
               type="submit"
             >
               DONATE

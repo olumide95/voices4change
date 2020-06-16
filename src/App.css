@@ -5,7 +5,7 @@ body {
   background-color: #fff;
   background-blend-mode: soft-light;
   background-size: cover;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.6);
   text-align: center;
 }
 
@@ -149,10 +149,6 @@ h6 {
 .logo {
   text-align: left;
   font-size: 20px;
-
-  -webkit-text-shadow: -1.5px 3px #0742d6;
-  -ms-text-shadow: -1.5px 3px #0742d6;
-  text-shadow: -1.5px 3px #0742d6;
 }
 .center {
   width: 100%;
@@ -162,12 +158,10 @@ h6 {
   transform: translate(-50%, -50%);
 }
 h1.home-text {
+  color: #ff6347;
   font-size: 60px;
   letter-spacing: 12px;
   line-height: 100px;
-  -webkit-text-shadow: -1.5px 3px #0742d6;
-  -ms-text-shadow: -1.5px 3px #0742d6;
-  text-shadow: -1.5px 3px #0742d6;
 }
 h1.text-2 {
   font-size: 40px;
@@ -193,18 +187,12 @@ h1.text-2 {
   font-size: 120px;
   letter-spacing: 12px;
   line-height: 100px;
-  -webkit-text-shadow: -1.5px 3px #0742d6;
-  -ms-text-shadow: -1.5px 3px #0742d6;
-  text-shadow: -1.5px 3px #0742d6;
 }
 
 .background-form h1 {
   font-size: 120px;
   letter-spacing: 12px;
   line-height: 100px;
-  -webkit-text-shadow: -1.5px 3px #0742d6;
-  -ms-text-shadow: -1.5px 3px #0742d6;
-  text-shadow: -1.5px 3px #0742d6;
 }
 .background-form .info-small {
   padding-top: 25px;
@@ -305,6 +293,14 @@ small:hover {
   font-weight: bold;
   border-radius: 5px;
 }
+.btn-transparent-home.donate {
+  background: #6bb6ff;
+  color: white;
+  font-size: 20px;
+  padding: 5px 25px;
+  font-weight: bold;
+  border-radius: 5px;
+}
 
 .btn-transparent-home {
   font-size: 20px;
@@ -325,6 +321,14 @@ small:hover {
   border-radius: 5px;
 }
 
+.btn-transparent-home.speak {
+  background: #6bb6ff;
+  color: white;
+  font-size: 20px;
+  padding: 5px 25px;
+  font-weight: bold;
+  border-radius: 5px;
+}
 .btn-transparent {
   font-size: 20px;
   padding: 10px 50px;
@@ -497,9 +501,6 @@ textarea {
     font-size: 15px;
     letter-spacing: 4.6px;
     line-height: 37.5px;
-    -webkit-text-shadow: -1.5px 3px #0742d6;
-    -ms-text-shadow: -1.5px 3px #0742d6;
-    text-shadow: -1.5px 3px #0742d6;
   }
   .about.form-box {
     bottom: auto;
