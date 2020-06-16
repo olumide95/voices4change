@@ -175,6 +175,7 @@ h1.home-text {
   font-size: 60px;
   letter-spacing: 12px;
   line-height: 100px;
+  text-shadow: 2px 2px #fff;
 }
 h1.text-2 {
   color: #4b9bef !important;
