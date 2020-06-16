@@ -21,9 +21,7 @@ export default class FormBox extends Component {
           </div>
           <div className="row">
             <div className={"col-lg-12 col-12 form"}>
-              <h2>
-                VOICES <br /> 4CHANGE.
-              </h2>
+              <h2>VOICES 4 CHANGE.</h2>
               <Form />
             </div>
           </div>

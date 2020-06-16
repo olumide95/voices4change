@@ -4,6 +4,7 @@ import { ApiService } from "../Services/Api.service";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Select from "react-select";
+import Popup from "reactjs-popup";
 export default class Form extends Component {
   constructor(props) {
     super(props);
@@ -129,6 +130,10 @@ export default class Form extends Component {
         value: "Speak truth to power",
         label: "Speak truth to power",
       },
+      {
+        value: "Frustrations form Covid-19",
+        label: "Frustrations form Covid-19",
+      },
       { value: "Other", label: "Other" },
     ];
 
@@ -196,8 +201,8 @@ export default class Form extends Component {
         <div className="form-field">
           <label htmlFor="motivation" className="select form-label">
             <span className="form-label-content">
-              What message that was on your sign/poster/banner/placard during
-              the protests?
+              What message was on your sign/poster/banner/placard during the
+              protests?
             </span>
           </label>
           <textarea
@@ -320,26 +325,71 @@ export default class Form extends Component {
             <div className="col-md-6">
               <ul className="social-network social-circle">
                 <li>
-                  <a href="#" className="icoYt" title="Youtube">
-                    <i className="fa fa-youtube-play"></i>
+                  <a
+                    href="https://twitter.com/share?url=http://Voices4change.org/speak&text=Voices4change"
+                    onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                    target="_blank"
+                    className="icoYt"
+                    title="Youtube"
+                  >
+                    <i className="fa fa-twitter"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="icoFacebook" title="Facebook">
+                  <a
+                    href="https://www.facebook.com/sharer/sharer.php?u=http://Voices4change.org/speak/&t=Voices4change"
+                    onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                    target="_blank"
+                    className="icoFacebook"
+                    title="Facebook"
+                  >
                     <i className="fa fa-facebook"></i>
                   </a>
                 </li>
                 <li>
                   <a href="#" className="icoGoogle" title="Google +">
-                    <i className="fa fa-google-plus"></i>
+                    <i className="fa fa-instagram"></i>
                   </a>
                 </li>
               </ul>
+              <Popup
+                trigger={
+                  <button class="btn btn-lg btn-dark share" type="button">
+                    <i class="fa fa-share"></i> Share
+                  </button>
+                }
+                position="right center"
+              >
+                <div>
+                  {" "}
+                  <a
+                    href="https://www.facebook.com/sharer/sharer.php?u=http://Voices4change.org/speak/&t=Voices4change"
+                    onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                    target="_blank"
+                    className="btn btn-primary social-btn"
+                    type="button"
+                  >
+                    Share to Facebook
+                  </a>
+                  <a
+                    href="https://twitter.com/share?url=http://Voices4change.org/speak&text=Voices4change"
+                    onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                    target="_blank"
+                    className="btn btn-primary social-btn"
+                    type="button"
+                  >
+                    Share to Twitter
+                  </a>
+                  <a className="btn btn-primary social-btn" type="button">
+                    Share to Instagram
+                  </a>
+                </div>
+              </Popup>
             </div>
             <div className="col-md-6">
               <div className="subbtn">
                 <button
-                  className="btn btn-transparent"
+                  className="btn btn-transparent "
                   type="Submit"
                   disabled={disabled}
                 >

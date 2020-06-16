@@ -123,6 +123,19 @@ h6 {
   font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
   font-weight: bold;
 }
+
+.btn-dark.share {
+  border-radius: 1.4rem;
+  float: left;
+  color: #fff;
+  background-color: #6bb6ff !important;
+  border-color: #6bb6ff !important;
+}
+
+.social-btn {
+  margin-bottom: 5%;
+  width: 100%;
+}
 .btn.no-outline {
   border-color: transparent !important;
 }
@@ -133,7 +146,7 @@ h6 {
 
 .about-head {
   text-align: left;
-  color: #0c64c0;
+  color: #4b9bef;
 }
 .about.form-box {
   position: absolute;
@@ -158,12 +171,13 @@ h6 {
   transform: translate(-50%, -50%);
 }
 h1.home-text {
-  color: #ff6347;
+  color: #4b9bef;
   font-size: 60px;
   letter-spacing: 12px;
   line-height: 100px;
 }
 h1.text-2 {
+  color: white !important;
   font-size: 40px;
 }
 .background-form {
