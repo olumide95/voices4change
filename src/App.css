@@ -444,6 +444,9 @@ textarea {
   }
 }
 @media only screen and (max-width: 576px) {
+  .navbar {
+    padding: 0.5rem 0.1rem;
+  }
   .btn-transparent-home.speak {
     font-size: 15px;
   }

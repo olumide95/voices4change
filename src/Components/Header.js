@@ -28,7 +28,7 @@ class Header extends Component {
             className="btn btn-transparent-home  top-btn no-outline mx-2 my-sm-0"
             type="submit"
           >
-            PARTNER
+            PARTNER WITH US
           </a>
           <button
             className="btn btn-transparent-home  top-btn no-outline my-2 my-sm-0"
@@ -64,7 +64,7 @@ class Header extends Component {
               className="btn btn-transparent-home  top-btn no-outline mx-2 my-sm-0"
               type="submit"
             >
-              PARTNER
+              PARTNER WITH US
             </a>
             <button
               className="btn btn-transparent-home  top-btn no-outline my-2 my-sm-0"
