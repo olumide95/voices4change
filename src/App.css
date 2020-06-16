@@ -162,14 +162,16 @@ h6 {
   transform: translate(-50%, -50%);
 }
 h1.home-text {
-  font-size: 40px;
+  font-size: 60px;
   letter-spacing: 12px;
   line-height: 100px;
   -webkit-text-shadow: -1.5px 3px #0742d6;
   -ms-text-shadow: -1.5px 3px #0742d6;
   text-shadow: -1.5px 3px #0742d6;
 }
-
+h1.text-2 {
+  font-size: 40px;
+}
 .background-form {
   background-image: url(https://images.unsplash.com/photo-1511898634545-c01af8a54dd5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2020&q=auto);
   height: 980px;
