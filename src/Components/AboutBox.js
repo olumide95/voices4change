@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import ReadMoreAndLess from "react-read-more-less";
+
+import { Link } from "react-router-dom";
 export default class AboutBox extends Component {
   constructor(props) {
     super(props);
@@ -64,8 +65,9 @@ export default class AboutBox extends Component {
                 <br /> If you haven’t attended a rally in your city you can
                 still contribute by typing your thoughts and comments about the
                 current issues of the day such as the serial police brutality
-                and unjust killings in the American society - Speak up; your
-                voice will be amplified to affect change!
+                and unjust killings in the American society -{" "}
+                <Link to="/speak">Speak up</Link>; your voice will be amplified
+                to affect change!
               </p>
             </div>
           </div>

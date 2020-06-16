@@ -23,9 +23,7 @@ export default class Home extends Component {
           <h1 className="home-text text-2">AMPLIFYING THE VOICES OF CHANGE</h1>
           <Link to="/speak">
             {" "}
-            <button className="btn btn-transparent-home speak">
-              Speak Out
-            </button>
+            <button className="btn btn-transparent-home speak">Speak Up</button>
           </Link>
         </div>
       </div>
