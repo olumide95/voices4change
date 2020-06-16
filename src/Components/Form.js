@@ -1,21 +1,25 @@
 import React, { Component } from "react";
-import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
+import { CountryDropdown } from "react-country-region-selector";
 import { ApiService } from "../Services/Api.service";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import Select from "react-select";
 export default class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
+      email: "",
       country: "",
-      region: "",
+      zipcode: "",
       motivation: "",
+      comment: "",
+      selectedMotivation: [],
       otherMotivation: "",
       message: "",
       showOtherMotivation: false,
       loading: false,
+      commentbox: false,
     };
 
     this.baseState = this.state;
@@ -25,44 +29,76 @@ export default class Form extends Component {
   };
   selectCountry(val) {
     this.setState({ country: val });
+    this.setState({ zipcode: "" });
   }
-
-  selectRegion(val) {
-    this.setState({ region: val });
+  setZipcode(event) {
+    this.setState({ zipcode: event.target.value });
   }
-
   setName(event) {
     this.setState({ name: event.target.value });
+  }
+
+  setEmail(event) {
+    this.setState({ email: event.target.value });
   }
 
   setOtherMotivation(event) {
     this.setState({ otherMotivation: event.target.value });
   }
 
-  setMotivation(event) {
-    if (event.target.value === "Other") {
+  setComment(event) {
+    this.setState({ comment: event.target.value });
+  }
+  showCommentBox = () => {
+    this.setState({ commentbox: !this.state.commentbox });
+  };
+
+  setMotivation = (motivation) => {
+    let showOther = false;
+    if (motivation) {
+      motivation.map((item) => {
+        if (item.value === "Other") {
+          showOther = true;
+        }
+        return 1;
+      });
+    }
+    console.log(showOther);
+    if (showOther) {
       this.setState({ showOtherMotivation: true });
     } else {
       this.setState({ showOtherMotivation: false });
+      this.setState({ otherMotivation: "" });
     }
-    this.setState({ motivation: event.target.value });
-  }
+
+    this.setState({ motivation });
+  };
+
   setMessage(event) {
     this.setState({ message: event.target.value });
   }
 
   handleSubmit() {
     this.setState({ loading: true });
-    let motivation =
-      this.state.motivation === "Other"
-        ? this.state.otherMotivation
-        : this.state.motivation;
+
+    let motivation = null;
+    if (this.state.motivation) {
+      motivation = this.state.motivation.map((item) => {
+        if (item.value === "Other") {
+          return this.state.otherMotivation;
+        }
+        return item.value;
+      });
+    }
+
     ApiService.submit(
       this.state.name,
+      this.state.email,
       this.state.country,
-      this.state.region,
-      motivation,
-      this.state.message
+      this.state.zipcode,
+      motivation ?? null,
+      this.state.message ?? null,
+      this.state.comment
     )
       .then((res) => {
         this.resetForm();
@@ -75,7 +111,27 @@ export default class Form extends Component {
   }
 
   render() {
-    const { country, region } = this.state;
+    const { country } = this.state;
+    const options = [
+      {
+        value: "End Police Brutality",
+        label: "End Police Brutality",
+      },
+      {
+        value: "Frustrated with the System/Government",
+        label: "Frustrated with the System/Government",
+      },
+      {
+        value: "Broken Criminal Justice System",
+        label: "Broken Criminal Justice System",
+      },
+      {
+        value: "Speak truth to power",
+        label: "Speak truth to power",
+      },
+      { value: "Other", label: "Other" },
+    ];
+
     let disabled = this.state.loading ? "disabled" : "";
     let spinner = this.state.loading ? (
       <span className="spinner-border spinner-border-sm spin-icon">
@@ -88,16 +144,16 @@ export default class Form extends Component {
       this.state.country === "United States" ? (
         <div className="form-field">
           <label htmlFor="state" className="select form-label">
-            <span className="form-label-content">State</span>
+            <span className="form-label-content">Post Code</span>
           </label>
-          <RegionDropdown
-            classes="form-control"
-            name="state"
-            id="state"
-            country={country}
-            value={region}
-            onChange={(val) => this.selectRegion(val)}
+          <input
+            className="form-control"
+            type="text"
+            name="zipcode"
+            id="zipcode"
             required
+            onChange={(event) => this.setZipcode(event)}
+            value={this.state.zipcode}
           />
         </div>
       ) : (
@@ -115,6 +171,70 @@ export default class Form extends Component {
         onChange={(event) => this.setOtherMotivation(event)}
         value={this.state.otherMotivation}
       />
+    ) : (
+      ""
+    );
+    let motivation_section = this.state.commentbox ? (
+      ""
+    ) : (
+      <div>
+        <div className="form-field">
+          <label htmlFor="motivation" className="select form-label">
+            <span className="form-label-content">
+              What issue motivated you to go out and protest?
+            </span>
+          </label>
+          <Select
+            isMulti={true}
+            options={options}
+            value={this.state.motivation}
+            onChange={this.setMotivation}
+            required
+          />
+        </div>
+        {otherMotivation}
+        <div className="form-field">
+          <label htmlFor="motivation" className="select form-label">
+            <span className="form-label-content">
+              What message that was on your sign/poster/banner/placard during
+              the protests?
+            </span>
+          </label>
+          <textarea
+            rows="2"
+            cols="40"
+            className="form-control"
+            type="text"
+            name="message"
+            id="message"
+            placeholder="Type the message that was on your sign/poster/banner/placard during
+                the protests"
+            onChange={(event) => this.setMessage(event)}
+            required
+            value={this.state.message}
+          ></textarea>
+        </div>
+      </div>
+    );
+
+    let comment_box = this.state.commentbox ? (
+      <div className="form-field">
+        <label htmlFor="motivation" className="select form-label">
+          <span className="form-label-content">What are your thoughts?</span>
+        </label>
+        <textarea
+          rows="2"
+          cols="40"
+          className="form-control"
+          type="text"
+          name="comment"
+          id="comment"
+          placeholder="Type your thoughts"
+          onChange={(event) => this.setComment(event)}
+          required
+          value={this.state.comment}
+        ></textarea>
+      </div>
     ) : (
       ""
     );
@@ -145,6 +265,23 @@ export default class Form extends Component {
           </div>
 
           <div className="form-field">
+            <label htmlFor="name" className="select form-label">
+              <span className="form-label-content" id="fname">
+                Email
+              </span>
+            </label>
+            <input
+              className="form-control"
+              type="email"
+              name="email"
+              id="email"
+              required
+              value={this.state.email}
+              onChange={(val) => this.setEmail(val)}
+            />
+          </div>
+
+          <div className="form-field">
             <label htmlFor="country" className="select form-label">
               <span className="form-label-content">Country</span>
             </label>
@@ -159,71 +296,58 @@ export default class Form extends Component {
           </div>
 
           {showState}
-
           <div className="form-field">
-            <label htmlFor="motivation" className="select form-label">
-              <span className="form-label-content">
-                What issue motivated you to go out and protest?
-              </span>
-            </label>
-
-            <select
-              className="form-control floating-select"
-              name="motivation"
-              id="motivation"
-              value={this.state.motivation}
-              required
-              onChange={(event) => this.setMotivation(event)}
-            >
-              <option value="">Select</option>
-              <option value="End Police Brutality">End Police Brutality</option>
-              <option value="Against Racial Injustice/Inequality">
-                Against Racial Injustice/Inequality
-              </option>
-
-              <option value="Frustrated with the System/Government">
-                Frustrated with the System/Government
-              </option>
-              <option value="Broken Criminal Justice System">
-                Broken Criminal Justice System
-              </option>
-              <option value="Speak truth to power">Speak truth to power</option>
-
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          {otherMotivation}
-
-          <div className="form-field">
-            <label htmlFor="motivation" className="select form-label">
-              <span className="form-label-content">
-                What message that was on your sign/poster/banner/placard during
-                the protests?
-              </span>
-            </label>
-            <textarea
-              rows="2"
-              cols="40"
-              className="form-control"
-              type="text"
-              name="message"
-              id="message"
-              placeholder="Type the message"
-              onChange={(event) => this.setMessage(event)}
-              required
-              value={this.state.message}
-            ></textarea>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="exampleCheck1"
+                onChange={this.showCommentBox}
+                checked={this.state.commentbox ? true : false}
+              />
+              <label class="form-check-label" for="exampleCheck1">
+                I did not attend a protest but will like to comment
+              </label>
+            </div>
           </div>
 
-          <div className="subbtn">
-            <button
-              className="btn btn-transparent"
-              type="Submit"
-              disabled={disabled}
-            >
-              {spinner} {"     "}
-              Submit
-            </button>
+          {motivation_section}
+
+          {comment_box}
+
+          <br />
+          <div className="row">
+            <div className="col-md-6">
+              <ul className="social-network social-circle">
+                <li>
+                  <a href="#" className="icoYt" title="Youtube">
+                    <i className="fa fa-youtube-play"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="icoFacebook" title="Facebook">
+                    <i className="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="icoGoogle" title="Google +">
+                    <i className="fa fa-google-plus"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="col-md-6">
+              <div className="subbtn">
+                <button
+                  className="btn btn-transparent"
+                  type="Submit"
+                  disabled={disabled}
+                >
+                  {spinner} {"     "}
+                  Submit
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </form>

@@ -5,15 +5,33 @@ const ApiService = {
     ApiService.baseUrl = baseURL;
     axios.defaults.baseURL = baseURL;
   },
-  submit: async (name, country, state, motivation, message) => {
-    console.log({ name, country, state, motivation, message });
+  submit: async (
+    name,
+    email,
+    country,
+    zipcode,
+    motivation,
+    message,
+    comment
+  ) => {
+    console.log({
+      name,
+      email,
+      country,
+      zipcode,
+      motivation,
+      message,
+      comment,
+    });
     return await axios
       .post("/submit", {
         name: name,
+        email: email,
         country: country,
-        state: state,
+        zipcode: zipcode,
         motivation: motivation,
         message: message,
+        comment: comment,
       })
       .then((res) => {
         return Promise.resolve(res.data);
