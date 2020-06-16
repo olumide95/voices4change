@@ -43,7 +43,7 @@ export default class AboutBox extends Component {
                 the sentiments of the millions of protesters as projected in
                 their numerous written messaging on posters, placards, items of
                 clothing and general merchandise on display at various rallies
-                across the globe over the past couple of weeks."
+                across the globe over the past couple of weeks.
               </p>
               <br />
               <h2 className="about-head">Let your voice affect change</h2>
@@ -62,6 +62,7 @@ export default class AboutBox extends Component {
                 is synthesized with the abundance and forward transfer of
                 positive energy and then unleashed for a common purpose - the
                 achievement of a more just society.
+                <br />
                 <br /> If you haven’t attended a rally in your city you can
                 still contribute by typing your thoughts and comments about the
                 current issues of the day such as the serial police brutality
