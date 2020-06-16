@@ -515,6 +515,7 @@ textarea {
     font-size: 15px;
     letter-spacing: 4.6px;
     line-height: 37.5px;
+    text-shadow: 2px 2px #fff;
   }
   .about.form-box {
     bottom: auto;
