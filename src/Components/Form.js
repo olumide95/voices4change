@@ -82,7 +82,7 @@ export default class Form extends Component {
   handleSubmit() {
     this.setState({ loading: true });
 
-    let motivation = null;
+    let motivation = "";
     if (this.state.motivation) {
       motivation = this.state.motivation.map((item) => {
         if (item.value === "Other") {
@@ -90,6 +90,7 @@ export default class Form extends Component {
         }
         return item.value;
       });
+      motivation = motivation.join(", ");
     }
 
     ApiService.submit(
@@ -97,8 +98,9 @@ export default class Form extends Component {
       this.state.email,
       this.state.country,
       this.state.zipcode,
-      motivation ?? null,
+      motivation,
       this.state.message ?? null,
+      this.state.commentbox ? "No" : "Yes",
       this.state.comment
     )
       .then((res) => {
@@ -270,8 +272,8 @@ export default class Form extends Component {
           </div>
 
           <div className="form-field">
-            <label htmlFor="name" className="select form-label">
-              <span className="form-label-content" id="fname">
+            <label htmlFor="email" className="select form-label">
+              <span className="form-label-content" id="femail">
                 Email
               </span>
             </label>

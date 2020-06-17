@@ -12,25 +12,28 @@ const ApiService = {
     zipcode,
     motivation,
     message,
+    attended_protest,
     comment
   ) => {
     console.log({
-      name,
-      email,
-      country,
-      zipcode,
-      motivation,
-      message,
-      comment,
+      name: name,
+      email: email,
+      country: country,
+      zip_code: zipcode,
+      motivation: motivation,
+      message: message,
+      attended_protest: attended_protest,
+      comment: comment,
     });
     return await axios
       .post("/submit", {
         name: name,
         email: email,
         country: country,
-        zipcode: zipcode,
+        zip_code: zipcode,
         motivation: motivation,
         message: message,
+        attended_protest: attended_protest,
         comment: comment,
       })
       .then((res) => {
