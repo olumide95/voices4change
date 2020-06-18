@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../marquee.css";
 import $ from "jquery";
-import axios from "axios";
+import { ApiService } from "../Services/Api.service";
 export default class Marquee extends Component {
   constructor(props) {
     super(props);
@@ -12,21 +12,24 @@ export default class Marquee extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:8000/submissions`).then((res) => {
-      console.log(res.data.data);
-      this.setState({ data: res.data.data });
-      let marquee = $(".marquee");
-      let marqueeLength = marquee.width() - 200;
-      let counter = parseInt($(".marquee").css("marginLeft"));
+    ApiService.getSubmissions()
+      .then((res) => {
+        this.setState({ data: res.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    let marquee = $(".marquee");
+    let marqueeLength = marquee.width() - 200;
+    let counter = parseInt($(".marquee").css("marginLeft"));
 
-      this.dx = setInterval(() => {
-        if (counter + marqueeLength <= 2) {
-          counter = 100;
-        }
-        $(".marquee").animate({ marginLeft: counter }, 100);
-        counter -= 5;
-      }, 101);
-    });
+    this.dx = setInterval(() => {
+      if (counter + marqueeLength <= 2) {
+        counter = 150;
+      }
+      $(".marquee").animate({ marginLeft: counter }, 150);
+      counter -= 5;
+    }, 101);
   }
 
   render() {
@@ -36,7 +39,7 @@ export default class Marquee extends Component {
           <div className="text">
             <li>
               {item.name + " (" + item.country + ")"} -{" "}
-              {item.message ?? item.comment}
+              {item.message ? item.message : item.comment}
               {""}
             </li>
           </div>
@@ -49,7 +52,17 @@ export default class Marquee extends Component {
         <div className="bn-label">Voices4Change</div>
         <div className="bn-news">
           <div id="domer" className="marquee">
-            {submissions}
+            {submissions.length ? (
+              submissions
+            ) : (
+              <div className="add">
+                <div className="text">
+                  <h5 style={{ color: "#4b9bef" }}>
+                    AMPLIFYING THE VOICES OF CHANGE...
+                  </h5>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

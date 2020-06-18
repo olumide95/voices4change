@@ -151,7 +151,7 @@ export default class Form extends Component {
       this.state.country === "United States" ? (
         <div className="form-field">
           <label htmlFor="state" className="select form-label">
-            <span className="form-label-content">Post Code</span>
+            <span className="form-label-content">Zip Code</span>
           </label>
           <input
             className="form-control"

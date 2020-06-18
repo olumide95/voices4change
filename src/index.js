@@ -6,7 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 import { ApiService } from "./Services/Api.service";
 import Jquery from "jquery";
 window.$ = window.JQuery = window.jQuery = Jquery;
-ApiService.init("http://127.0.0.1:8000");
+ApiService.init("http://api.voices4change.org");
 ReactDOM.render(
   <React.StrictMode>
     <App />

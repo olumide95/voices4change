@@ -23,12 +23,13 @@ class Header extends Component {
             </button>
           </Link>
 
-          <a
-            href={"mailto:info@vocies4change.org"}
-            className="btn btn-transparent-home  top-btn no-outline mx-2 my-sm-0"
-            type="submit"
-          >
-            PARTNER WITH US
+          <a href={"mailto:info@vocies4change.org"}>
+            <button
+              className="btn btn-transparent-home  top-btn no-outline mx-2 my-sm-0"
+              type="submit"
+            >
+              PARTNER WITH US
+            </button>
           </a>
           <button
             className="btn btn-transparent-home donate  top-btn no-outline my-2 my-sm-0"
@@ -59,12 +60,13 @@ class Header extends Component {
               </button>
             </Link>
 
-            <a
-              href={"mailto:info@vocies4change.org"}
-              className="btn btn-transparent-home  top-btn no-outline mx-2 my-sm-0"
-              type="submit"
-            >
-              PARTNER WITH US
+            <a href={"mailto:info@vocies4change.org"}>
+              <button
+                className="btn btn-transparent-home  top-btn no-outline mx-2 my-sm-0"
+                type="submit"
+              >
+                PARTNER WITH US
+              </button>
             </a>
             <button
               className="btn btn-transparent-home donate  top-btn no-outline my-2 my-sm-0"
