@@ -13,7 +13,7 @@ import {
 import { ToastContainer } from "react-toastify";
 import Header from "./Components/Header";
 import Marquee from "./Components/Marquee";
-
+import ExportReport from "./Components/ExportReport";
 export default class App extends Component {
   render() {
     return (
@@ -24,6 +24,7 @@ export default class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/speak" component={FormBox} />
             <Route exact path="/about" component={AboutBox} />
+            <Route exact path="/export" component={ExportReport} />
             <Redirect to="/" />
           </Switch>
           <Marquee />

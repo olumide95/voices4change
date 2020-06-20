@@ -54,6 +54,19 @@ const ApiService = {
         return Promise.reject(error.response.data);
       });
   },
+
+  export: async () => {
+    return await axios
+      .get("/export", {
+        responseType: "blob",
+      })
+      .then((res) => {
+        return Promise.resolve(res.data);
+      })
+      .catch((error) => {
+        return Promise.reject(error.response.data);
+      });
+  },
 };
 
 export { ApiService };

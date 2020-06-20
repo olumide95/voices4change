@@ -304,15 +304,15 @@ export default class Form extends Component {
 
           {showState}
           <div className="form-field">
-            <div class="form-check">
+            <div className="form-check">
               <input
                 type="checkbox"
-                class="form-check-input"
+                className="form-check-input"
                 id="exampleCheck1"
                 onChange={this.showCommentBox}
                 checked={this.state.commentbox ? true : false}
               />
-              <label class="form-check-label" for="exampleCheck1">
+              <label className="form-check-label" htmlFor="exampleCheck1">
                 I did not attend a protest but will like to comment
               </label>
             </div>
@@ -361,8 +361,8 @@ export default class Form extends Component {
               </ul>
               <Popup
                 trigger={
-                  <button class="btn btn-lg btn-dark share" type="button">
-                    <i class="fa fa-share"></i> Share
+                  <button className="btn btn-lg btn-dark share" type="button">
+                    <i className="fa fa-share"></i> Share
                   </button>
                 }
                 position="right center"
