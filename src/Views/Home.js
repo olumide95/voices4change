@@ -18,7 +18,7 @@ export default class Home extends Component {
       <div>
         <br />
         <br />
-        <h1 className="home-text">COMMUNITY OF CONCIOUSNESS</h1>
+        <h1 className="home-text">COMMUNITY OF CONSCIOUSNESS</h1>
         <div className="center">
           <h1 className="home-text text-2">AMPLIFYING THE VOICES OF CHANGE</h1>
           <Link to="/speak">

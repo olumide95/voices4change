@@ -328,11 +328,11 @@ export default class Form extends Component {
               <ul className="social-network social-circle">
                 <li>
                   <a
-                    href="https://twitter.com/share?url=http://Voices4change.org/speak&text=Voices4change"
+                    href="https://twitter.com/CommunityofCon1"
                     onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
                     target="_blank"
                     className="icoYt"
-                    title="Youtube"
+                    title="Twitter"
                   >
                     <i className="fa fa-twitter"></i>
                   </a>
@@ -349,7 +349,12 @@ export default class Form extends Component {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="icoGoogle" title="Google +">
+                  <a
+                    href="https://www.instagram.com/thecommunityofconsciousness/"
+                    className="icoGoogle"
+                    target="_blank"
+                    title="Google +"
+                  >
                     <i className="fa fa-instagram"></i>
                   </a>
                 </li>
@@ -365,7 +370,7 @@ export default class Form extends Component {
                 <div>
                   {" "}
                   <a
-                    href="https://www.facebook.com/sharer/sharer.php?u=http://Voices4change.org/speak/&t=Voices4change"
+                    href="https://www.facebook.com/sharer/sharer.php?u=http://Voices4change.org/speak/&t=Community Of Consciousness"
                     onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
                     target="_blank"
                     className="btn btn-primary social-btn"
@@ -374,16 +379,13 @@ export default class Form extends Component {
                     Share to Facebook
                   </a>
                   <a
-                    href="https://twitter.com/share?url=http://Voices4change.org/speak&text=Voices4change"
+                    href="https://twitter.com/share?url=http://Voices4change.org/speak&text=Community Of Consciousness"
                     onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
                     target="_blank"
                     className="btn btn-primary social-btn"
                     type="button"
                   >
                     Share to Twitter
-                  </a>
-                  <a className="btn btn-primary social-btn" type="button">
-                    Share to Instagram
                   </a>
                 </div>
               </Popup>
