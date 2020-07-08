@@ -15,21 +15,27 @@ export default class Marquee extends Component {
     ApiService.getSubmissions()
       .then((res) => {
         this.setState({ data: res.data });
+        let marquee = $(".marquee");
+        let marqueeLength = marquee.width() - 200;
+        let counter = parseInt($(".marquee").css("marginLeft"));
+
+        this.dx = setInterval(() => {
+          if (counter + marqueeLength <= 2) {
+            counter = 150;
+          }
+          $(".marquee").animate({ marginLeft: counter }, 150);
+          counter -= 5;
+        }, 101);
       })
       .catch((err) => {
         console.log(err);
       });
-    let marquee = $(".marquee");
-    let marqueeLength = marquee.width() - 200;
-    let counter = parseInt($(".marquee").css("marginLeft"));
+  }
 
-    this.dx = setInterval(() => {
-      if (counter + marqueeLength <= 2) {
-        counter = 150;
-      }
-      $(".marquee").animate({ marginLeft: counter }, 150);
-      counter -= 5;
-    }, 101);
+  componentWillUnmount() {
+    if (this.dx) {
+      clearInterval(this.dx);
+    }
   }
 
   render() {
