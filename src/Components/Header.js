@@ -37,13 +37,13 @@ class Header extends Component {
               </form>
           </button>
 
-          <a href={"/contact-us"}>
+          <Link to="/contact-us">
               <button
                 className="btn btn-transparent-home  top-btn no-outline mx-2 my-sm-0"
               >
                 CONTACT US
               </button>
-            </a>
+         </Link>
 
         </div>
 
@@ -78,13 +78,13 @@ class Header extends Component {
               </form>
             </button>
 
-            <a href={"/contact-us"}>
+            <Link to="/contact-us">
               <button
                 className="btn btn-transparent-home  top-btn no-outline mx-2 my-sm-0"
               >
                 CONTACT US
               </button>
-            </a>
+            </Link>
 
           </div>
         </div>
