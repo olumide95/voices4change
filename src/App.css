@@ -1,7 +1,7 @@
 body {
   color: #fff;
   font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
-  background-image: url(https://images.unsplash.com/photo-1511898634545-c01af8a54dd5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2020&q=auto);
+  background-image: url(/home.jpg);
   background-color: #fff;
   background-blend-mode: soft-light;
   background-size: cover;
@@ -309,12 +309,7 @@ small:hover {
   border-radius: 5px;
 }
 .btn-transparent-home.donate {
-  background: #6bb6ff;
-  color: white;
-  font-size: 20px;
-  padding: 5px 25px;
-  font-weight: bold;
-  border-radius: 5px;
+  background: transparent !important;
 }
 
 .btn-transparent-home {
@@ -336,6 +331,14 @@ small:hover {
   border-radius: 5px;
 }
 
+.btn-transparent-home:hover {
+  background: #6bb6ff;
+  color: white;
+  font-size: 20px;
+  padding: 5px 25px;
+  font-weight: bold;
+  border-radius: 5px;
+}
 .btn-transparent-home.speak {
   background: #6bb6ff;
   color: white;
@@ -472,10 +475,7 @@ textarea {
     font-size: 15px;
   }
   body {
-    background-repeat: no-repeat;
-
     background-size: unset;
-    background-position: center !important;
   }
   .mobile-nav {
     display: block;

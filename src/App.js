@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "./Views/Home";
 import FormBox from "./Components/FormBox";
 import AboutBox from "./Components/AboutBox";
+import ContactUs from "./Components/ContactUs";
 import { Component } from "react";
 import {
   BrowserRouter as Router,
@@ -24,6 +25,7 @@ export default class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/speak" component={FormBox} />
             <Route exact path="/about" component={AboutBox} />
+            <Route exact path="/contact-us" component={ContactUs} />
             <Route exact path="/export" component={ExportReport} />
             <Redirect to="/" />
           </Switch>

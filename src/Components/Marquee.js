@@ -14,7 +14,7 @@ export default class Marquee extends Component {
   componentDidMount() {
     ApiService.getSubmissions()
       .then((res) => {
-        this.setState({ data: res.data });
+        this.setState({ data: [] });
         let marquee = $(".marquee");
         let marqueeLength = marquee.width() - 200;
         let counter = parseInt($(".marquee").css("marginLeft"));
@@ -55,19 +55,13 @@ export default class Marquee extends Component {
 
     return (
       <div className="breaking-news-ticker" id="example">
-        <div className="bn-label">Voices4Change</div>
+        <div className="bn-label">DONORS</div>
         <div className="bn-news">
           <div id="domer" className="marquee">
             {submissions.length ? (
               submissions
             ) : (
-              <div className="add">
-                <div className="text">
-                  <h5 style={{ color: "#4b9bef" }}>
-                    AMPLIFYING THE VOICES OF CHANGE...
-                  </h5>
-                </div>
-              </div>
+              ''
             )}
           </div>
         </div>

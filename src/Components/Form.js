@@ -4,7 +4,6 @@ import { ApiService } from "../Services/Api.service";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Select from "react-select";
-import Popup from "reactjs-popup";
 export default class Form extends Component {
   constructor(props) {
     super(props);
@@ -14,13 +13,8 @@ export default class Form extends Component {
       country: "",
       zipcode: "",
       motivation: "",
-      comment: "",
-      selectedMotivation: [],
-      otherMotivation: "",
       message: "",
-      showOtherMotivation: false,
       loading: false,
-      commentbox: false,
     };
 
     this.baseState = this.state;
@@ -32,84 +26,37 @@ export default class Form extends Component {
     this.setState({ country: val });
     this.setState({ zipcode: "" });
   }
-  setZipcode(event) {
-    this.setState({ zipcode: event.target.value });
-  }
-  setName(event) {
-    this.setState({ name: event.target.value });
-  }
+  // setZipcode(event) {
+  //   this.setState({ zipcode: event.target.value });
+  // }
+  // setName(event) {
+  //   this.setState({ name: event.target.value });
+  // }
 
   setEmail(event) {
     this.setState({ email: event.target.value });
   }
 
-  setOtherMotivation(event) {
-    this.setState({ otherMotivation: event.target.value });
-  }
-
-  setComment(event) {
-    this.setState({ comment: event.target.value });
-  }
-  showCommentBox = () => {
-    this.setState({ commentbox: !this.state.commentbox });
-  };
-
   setMotivation = (motivation) => {
-    let showOther = false;
-    if (motivation) {
-      motivation.map((item) => {
-        if (item.value === "Other") {
-          showOther = true;
-        }
-        return 1;
-      });
-    }
-    console.log(showOther);
-    if (showOther) {
-      this.setState({ showOtherMotivation: true });
-    } else {
-      this.setState({ showOtherMotivation: false });
-      this.setState({ otherMotivation: "" });
-    }
-
     this.setState({ motivation });
   };
 
-  setMessage(event) {
-    this.setState({ message: event.target.value });
-  }
-
   handleSubmit() {
     this.setState({ loading: true });
-
-    let motivation = "";
-    if (this.state.motivation) {
-      motivation = this.state.motivation.map((item) => {
-        if (item.value === "Other") {
-          return this.state.otherMotivation;
-        }
-        return item.value;
-      });
-      motivation = motivation.join(", ");
-    }
 
     ApiService.submit(
       this.state.name,
       this.state.email,
       this.state.country,
-      this.state.zipcode,
-      motivation,
-      this.state.message ?? null,
-      this.state.commentbox ? "No" : "Yes",
-      this.state.comment
+      this.state.motivation,
     )
       .then((res) => {
         this.resetForm();
-        toast.success("Your Submission was successfull!");
+        toast.success("Your Request was successfull!");
       })
       .catch((err) => {
         this.resetForm();
-        toast.error("Error summiting response, Try again!");
+        toast.error("Error summiting request, Try again!");
       });
   }
 
@@ -117,26 +64,17 @@ export default class Form extends Component {
     const { country } = this.state;
     const options = [
       {
-        value: "End Police Brutality",
-        label: "End Police Brutality",
+        value: "Would like to sponsor a program",
+        label: "Would like to sponsor a program",
       },
       {
-        value: "Frustrated with the System/Government",
-        label: "Frustrated with the System/Government",
+        value: "We are a non-profit interested in forging a partnership",
+        label: "We are a non-profit interested in forging a partnership",
       },
       {
-        value: "Broken Criminal Justice System",
-        label: "Broken Criminal Justice System",
+        value: "Want to lern more about MBEF's objectives",
+        label: "Want to lern more about MBEF's objectives",
       },
-      {
-        value: "Speak truth to power",
-        label: "Speak truth to power",
-      },
-      {
-        value: "Frustrations form Covid-19",
-        label: "Frustrations form Covid-19",
-      },
-      { value: "Other", label: "Other" },
     ];
 
     let disabled = this.state.loading ? "disabled" : "";
@@ -147,104 +85,44 @@ export default class Form extends Component {
     ) : (
       ""
     );
-    let showState =
-      this.state.country === "United States" ? (
-        <div className="form-field">
-          <label htmlFor="state" className="select form-label">
-            <span className="form-label-content">Zip Code</span>
-          </label>
-          <input
-            className="form-control"
-            type="text"
-            name="zipcode"
-            id="zipcode"
-            required
-            onChange={(event) => this.setZipcode(event)}
-            value={this.state.zipcode}
-          />
-        </div>
-      ) : (
-        ""
-      );
+    // let showState =
+    //   this.state.country === "United States" ? (
+    //     <div className="form-field">
+    //       <label htmlFor="state" className="select form-label">
+    //         <span className="form-label-content">Zip Code</span>
+    //       </label>
+    //       <input
+    //         className="form-control"
+    //         type="text"
+    //         name="zipcode"
+    //         id="zipcode"
+    //         required
+    //         onChange={(event) => this.setZipcode(event)}
+    //         value={this.state.zipcode}
+    //       />
+    //     </div>
+    //   ) : (
+    //     ""
+    //   );
 
-    let otherMotivation = this.state.showOtherMotivation ? (
-      <input
-        className="form-control"
-        type="text"
-        name="otherMotivation"
-        id="otherMotivation"
-        required
-        placeholder="Other motivation..."
-        onChange={(event) => this.setOtherMotivation(event)}
-        value={this.state.otherMotivation}
-      />
-    ) : (
-      ""
-    );
-    let motivation_section = this.state.commentbox ? (
-      ""
-    ) : (
+    let motivation_section = (
       <div>
         <div className="form-field">
           <label htmlFor="motivation" className="select form-label">
             <span className="form-label-content">
-              What issue motivated you to go out and protest?
+              How would yout like to partner with us?
             </span>
           </label>
           <Select
-            isMulti={true}
             options={options}
             value={this.state.motivation}
             onChange={this.setMotivation}
             required
           />
         </div>
-        {otherMotivation}
-        <div className="form-field">
-          <label htmlFor="motivation" className="select form-label">
-            <span className="form-label-content">
-              What message was on your sign/poster/banner/placard during the
-              protests?
-            </span>
-          </label>
-          <textarea
-            rows="2"
-            cols="40"
-            className="form-control"
-            type="text"
-            name="message"
-            id="message"
-            placeholder="Type the message that was on your sign/poster/banner/placard during
-                the protests"
-            onChange={(event) => this.setMessage(event)}
-            required
-            value={this.state.message}
-          ></textarea>
         </div>
-      </div>
     );
 
-    let comment_box = this.state.commentbox ? (
-      <div className="form-field">
-        <label htmlFor="motivation" className="select form-label">
-          <span className="form-label-content">What are your thoughts?</span>
-        </label>
-        <textarea
-          rows="2"
-          cols="40"
-          className="form-control"
-          type="text"
-          name="comment"
-          id="comment"
-          placeholder="Type your thoughts"
-          onChange={(event) => this.setComment(event)}
-          required
-          value={this.state.comment}
-        ></textarea>
-      </div>
-    ) : (
-      ""
-    );
     return (
       <form
         className="formdesg"
@@ -302,93 +180,14 @@ export default class Form extends Component {
             />
           </div>
 
-          {showState}
-          <div className="form-field">
-            <div className="form-check">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="exampleCheck1"
-                onChange={this.showCommentBox}
-                checked={this.state.commentbox ? true : false}
-              />
-              <label className="form-check-label" htmlFor="exampleCheck1">
-                I did not attend a protest but will like to comment
-              </label>
-            </div>
-          </div>
+          {/* {showState} */}
 
           {motivation_section}
-
-          {comment_box}
 
           <br />
           <div className="row">
             <div className="col-md-6">
-              <ul className="social-network social-circle">
-                <li>
-                  <a
-                    href="https://twitter.com/CommunityofCon1"
-                    onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
-                    target="_blank"
-                    className="icoYt"
-                    title="Twitter"
-                  >
-                    <i className="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.facebook.com/sharer/sharer.php?u=http://Voices4change.org/speak/&t=Voices4change"
-                    onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
-                    target="_blank"
-                    className="icoFacebook"
-                    title="Facebook"
-                  >
-                    <i className="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.instagram.com/thecommunityofconsciousness/"
-                    className="icoGoogle"
-                    target="_blank"
-                    title="Google +"
-                  >
-                    <i className="fa fa-instagram"></i>
-                  </a>
-                </li>
-              </ul>
-              <Popup
-                trigger={
-                  <button className="btn btn-lg btn-dark share" type="button">
-                    <i className="fa fa-share"></i> Share
-                  </button>
-                }
-                position="right center"
-              >
-                <div>
-                  {" "}
-                  <a
-                    href="https://www.facebook.com/sharer/sharer.php?u=http://Voices4change.org/speak/&t=Community Of Consciousness"
-                    onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
-                    target="_blank"
-                    className="btn btn-primary social-btn"
-                    type="button"
-                  >
-                    Share to Facebook
-                  </a>
-                  <a
-                    href="https://twitter.com/share?url=http://Voices4change.org/speak&text=Community Of Consciousness"
-                    onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
-                    target="_blank"
-                    className="btn btn-primary social-btn"
-                    type="button"
-                  >
-                    Share to Twitter
-                  </a>
-                </div>
-              </Popup>
+              
             </div>
             <div className="col-md-6">
               <div className="subbtn">

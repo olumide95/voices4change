@@ -18,12 +18,13 @@ export default class Home extends Component {
       <div>
         <br />
         <br />
-        <h1 className="home-text">COMMUNITY OF CONSCIOUSNESS</h1>
+        <h1 className="home-text">Modesola Bassir</h1>
+         <h1 className="home-text">Educational Foundation</h1>
         <div className="center">
-          <h1 className="home-text text-2">AMPLIFYING THE VOICES OF CHANGE</h1>
+          <h2 className="home-text text-2">Transforming lives through community-Centerd Iniftiatives one child at a time</h2>
           <Link to="/speak">
             {" "}
-            <button className="btn btn-transparent-home speak">Speak Up</button>
+            <button className="btn btn-transparent-home speak">Partner With Us</button>
           </Link>
         </div>
       </div>

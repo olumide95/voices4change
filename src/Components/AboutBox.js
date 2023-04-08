@@ -19,57 +19,106 @@ export default class AboutBox extends Component {
         <div className="container">
           <div className="row">
             <div className="col-lg-12 col-12 form about-box">
-              <h2 className="about-head">Background</h2>
+              <h1 className="about-head">Modesola Bassir Educational Foundation (MBEF)</h1>
               <p>
-                The death of Mr George Floyd, a black American man, on an
-                obscure Minneapolis street corner, under the knee of a white
-                police officer triggered the most spontaneous and contagious
-                protests the United States have witnessed in decades. As the
-                coronavirus pandemic rage, the world watches as large swaths of
-                people across the country sacrificed social distancing at the
-                alter of a cry in unison for social justice. Reverberating
-                energy, resounding consciousness and explicit sense of
-                conviction seemed to have fueled these protests, keeping them
-                going and growing in the US for eighteen days now. Notably, the
-                protests have spread to over 60 countries representing every
-                continent, except Antarctica. George Floyd assumed fame, and
-                some say martyrdom in death. Without question, the death of this
-                man has sparked off a global civil right movement which we
-                believe inspire the preservation of the message, sentiments,
-                motives, drive, energy, purpose and clarion cries for social
-                reform that defines this moment. The energy inherent in this
-                movement must not be frittered but rather harvested to drive
-                real change. We established this site to capture and memorialize
-                the sentiments of the millions of protesters as projected in
-                their numerous written messaging on posters, placards, items of
-                clothing and general merchandise on display at various rallies
-                across the globe over the past couple of weeks.
+              The Modesola, Bassir Educational Frendation is a non-profit organization established in 2023 to continue the legary ep Mrs Modersta Bassir of blessed memory her lifelong commitment to education and the Sustainable development human Capacity within Communities In Nigeria.
               </p>
-              <br />
-              <h2 className="about-head">Let your voice affect change</h2>
-              <p>
-                We invite every citizen, leader and corporate whose conviction
-                of an endemically broken social contract in society, motivated
-                them to participate in any of the protests, to opt-in to this
-                community of consciousness. We implore you to please take a
-                moment and publish your unique message on this platform. The
-                community of consciousness offers you the opportunity to
-                transfer your words and thoughts from the signs you created or
-                seen at protests and rallies by filling out a simple form. We
-                intend this site to be that platform where your contributions
-                will enable the realization of a positive social multiplier
-                effect, where the fusion of individual convictions and yearnings
-                is synthesized with the abundance and forward transfer of
-                positive energy and then unleashed for a common purpose - the
-                achievement of a more just society.
-                <br />
-                <br /> If you haven’t attended a rally in your city you can
-                still contribute by typing your thoughts and comments about the
-                current issues of the day such as the serial police brutality
-                and unjust killings in the American society -{" "}
-                <Link to="/speak">Speak up</Link>; your voice will be amplified
-                to affect change!
+            </div>
+          </div>
+          
+         <div class="row">
+          <div className="col-lg-6 col-12 form about-box">
+          <img src="https://scx2.b-cdn.net/gfx/news/hires/2022/black-community.jpg" style={{width: 'inherit'}} alt="children reading a book"></img>
+          </div>
+            <div className="col-lg-6 col-12 form about-box">
+                  <h2 className="about-head">WE ENVISION A SOCIETY WHERE EVERY CHILD...</h2>
+                  <p>
+                  has access to educational opportunities that will enable them be competitive with any of their peers globally. Education helps create strong leaders and stable communities. We partner with organisations and individuals who share our mission of providing developmental opportunities to Nigerian youth.
+                  </p>
+            </div>
+
+            <div className="col-md-12 form about-box"> 
+            <h3 className="about-head">CHARTER</h3>
+            <p>
+            The MBEF was established with the  
+
+              objective of: 
+              <br></br><br></br>
+              [i] Embarking on socially  
+
+              responsible, impact-driven initiatives and  
+
+              projects, underpinned by sustainability, with  
+
+              the aim of fostering the education and socio-economic  
+
+              development of select, indigent students in society.  
+
+              <br></br><br></br>
+
+              [ii] Developing the next generation of future leaders by  
+
+              providing mentorship, empowerment and  
+
+              developmental opportunities to the youth
               </p>
+
+              <h3 className="about-head">PROGRAMS</h3>
+            <p>
+            The MBEF was established with the  
+
+              </p>
+
+              <h3 className="about-head">CHARTER</h3>
+            <p>
+            The MBEF was established with the  
+
+              objective of: 
+              <br></br><br></br>
+              [i] Embarking on socially  
+
+              responsible, impact-driven initiatives and  
+
+              projects, underpinned by sustainability, with  
+
+              the aim of fostering the education and socio-economic  
+
+              development of select, indigent students in society.  
+
+              <br></br><br></br>
+
+              [ii] Developing the next generation of future leaders by  
+
+              providing mentorship, empowerment and  
+
+              developmental opportunities to the youth
+              </p>
+
+              <h3 className="about-head">PROGRAMS</h3>
+                <p> The Following are some of our programs:   </p>
+           
+                <ol>
+                  <li> Modesola Bassir Educational Foundation Scholarship ( MBEFS) <br></br> 
+                  This program will provide educational scholarships to competitively selected and self-motivated students in secondary schools in Lagos and Oyo states. 
+                  </li>
+                  <li>Modesola Bassir Enterprenural and Skill Acquisition Program (MBESAP)</li>
+                  <li> Modesola Bassir Educational Foundation Literacy Initiative (MBEFLI) <br></br>  
+                  This program will help in creating libraries in schools within the community and improving the quality of learning through the improvement of existing infrastructures. 
+                  </li>
+                </ol> 
+
+
+                <h3 className="about-head">BOARD OF TRUSTEES</h3>
+                <ol>
+                  <li> Mrs. Morenike Taire </li>
+                  <li> Mr Oluseye Bassir</li>
+                  <li> Rep GCIOBA (TBD) </li>
+                  <li> RRep QCOGA (TBD) </li>
+                  <li> Rep Okitipupa (TBD)  </li>
+                </ol>   
+
+                <h3 className="about-head">OFFICE ADDRESS</h3>
+                <p>26 Olumbe Bassir Drive, Bodija, Ibadan, Oyo state.</p>                    
             </div>
           </div>
         </div>
