@@ -19,7 +19,7 @@ export default class AboutBox extends Component {
             <div className="col-lg-12 col-12 form about-box">
               <h1 className="about-head">Modesola Bassir Educational Foundation (MBEF)</h1>
               <p>
-              The Modesola, Bassir Educational Frendation is a non-profit organization established in 2023 to continue the legary ep Mrs Modersta Bassir of blessed memory her lifelong commitment to education and the Sustainable development human Capacity within Communities In Nigeria.
+              The Modesola Bassir Educational Foundation is a non-profit organization established in 2023 to continue the legacy of Mrs Modesola Bassir of blessed memory, foster her lifelong commitment to education, and drive the sustainable development of human capacity within communities in Nigeria.
               </p>
             </div>
           </div>
@@ -36,60 +36,16 @@ export default class AboutBox extends Component {
             </div>
 
             <div className="col-md-12 form about-box"> 
-            <h3 className="about-head">CHARTER</h3>
+            <h3 className="about-head">MBEF CHARTER</h3>
             <p>
-            The MBEF was established with the  
+            The MBEF was established with the objectives of: 
+              <br></br>
 
-              objective of: 
-              <br></br><br></br>
-              [i] Embarking on socially  
-
-              responsible, impact-driven initiatives and  
-
-              projects, underpinned by sustainability, with  
-
-              the aim of fostering the education and socio-economic  
-
-              development of select, indigent students in society.  
-
-              <br></br><br></br>
-
-              [ii] Developing the next generation of future leaders by  
-
-              providing mentorship, empowerment and  
-
-              developmental opportunities to the youth
-              </p>
-
-              <h3 className="about-head">PROGRAMS</h3>
-            <p>
-            The MBEF was established with the  
-
-              </p>
-
-              <h3 className="about-head">CHARTER</h3>
-            <p>
-            The MBEF was established with the  
-
-              objective of: 
-              <br></br><br></br>
-              [i] Embarking on socially  
-
-              responsible, impact-driven initiatives and  
-
-              projects, underpinned by sustainability, with  
-
-              the aim of fostering the education and socio-economic  
-
-              development of select, indigent students in society.  
-
-              <br></br><br></br>
-
-              [ii] Developing the next generation of future leaders by  
-
-              providing mentorship, empowerment and  
-
-              developmental opportunities to the youth
+              <ul>
+                  <li> Embarking on socially responsible, impact-driven initiatives and projects, underpinned by sustainability, and aimed at fostering the education and socio-economic development of select, indigent students in society.
+                  </li>
+                  <li>Developing the next generation of leaders by providing mentorship, empowerment and developmental opportunities to Nigerian students and youth. </li>
+                </ul> 
               </p>
 
               <h3 className="about-head">PROGRAMS</h3>
@@ -101,19 +57,13 @@ export default class AboutBox extends Component {
                   </li>
                   <li>Modesola Bassir Enterprenural and Skill Acquisition Program (MBESAP)</li>
                   <li> Modesola Bassir Educational Foundation Literacy Initiative (MBEFLI) <br></br>  
-                  This program will help in creating libraries in schools within the community and improving the quality of learning through the improvement of existing infrastructures. 
+                  This program will help in creating libraries in schools within the community and improving the quality of learning through the improvement of existing infrastructures.
                   </li>
                 </ol> 
 
 
                 <h3 className="about-head">BOARD OF TRUSTEES</h3>
-                <ol>
-                  <li> Mrs. Morenike Taire </li>
-                  <li> Mr Oluseye Bassir</li>
-                  <li> Rep GCIOBA (TBD) </li>
-                  <li> RRep QCOGA (TBD) </li>
-                  <li> Rep Okitipupa (TBD)  </li>
-                </ol>   
+                <p> To be Announced.</p>
 
                 <h3 className="about-head">OFFICE ADDRESS</h3>
                 <p>26 Olumbe Bassir Drive, Bodija, Ibadan, Oyo state.</p>                    
