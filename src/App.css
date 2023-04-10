@@ -167,16 +167,19 @@ h6 {
   width: 100%;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 40%;
   transform: translate(-50%, -50%);
 }
 h1.home-text {
   color: #4b9bef;
-  font-size: 60px;
+  font-size: 3rem;
   letter-spacing: 12px;
   line-height: 100px;
-  text-shadow: 2px 2px #fff;
 }
+h2.home-text {
+  font-size: 1.5rem;
+}
+
 h1.text-2 {
   color: #4b9bef !important;
   font-size: 40px;
@@ -310,6 +313,7 @@ small:hover {
 }
 .btn-transparent-home.donate {
   background: transparent !important;
+  padding-bottom: 0px;
 }
 
 .btn-transparent-home {
@@ -513,13 +517,21 @@ textarea {
   }
 
   h1.home-text {
-    font-size: 15px;
+    font-size: 2rem;
     letter-spacing: 4.6px;
     line-height: 37.5px;
-    text-shadow: 2px 2px #fff;
   }
+
+  h2.home-text {
+    font-size: 1rem;
+  }
+
   .about.form-box {
     bottom: auto;
+  }
+
+  .center.h2{
+    font-size: 1.5rem;
   }
 }
 

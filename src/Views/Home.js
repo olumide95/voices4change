@@ -16,12 +16,11 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-        <br />
-        <br />
-        <h1 className="home-text">Modesola Bassir</h1>
-         <h1 className="home-text">Educational Foundation</h1>
+        
         <div className="center">
+          <h1 className="home-text">Modesola Bassir Educational Foundation</h1>
           <h2 className="home-text text-2">Transforming lives through community-Centerd Iniftiatives one child at a time</h2>
+          <br></br>
           <Link to="/speak">
             {" "}
             <button className="btn btn-transparent-home speak">Partner With Us</button>
