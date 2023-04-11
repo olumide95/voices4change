@@ -59,6 +59,9 @@ export default class AboutBox extends Component {
                   <li> Modesola Bassir Educational Foundation Literacy Initiative (MBEFLI) <br></br>  
                   This program will help in creating libraries in schools within the community and improving the quality of learning through the improvement of existing infrastructures.
                   </li>
+                  <li> Modesola Bassir Teacher Adoption and Sponsorship Scheme <br></br>  
+                  This program will adopt Teachers and take responsibility for paying their salaries in schools struggling to attract and retain qualified and competent teachers.
+                  </li>
                 </ol> 
 
 
