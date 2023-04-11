@@ -31,8 +31,6 @@ export default class ContactUsForm extends Component {
 
   handleSubmit() {
     this.setState({ loading: true });
-
-    
   }
 
   render() {
