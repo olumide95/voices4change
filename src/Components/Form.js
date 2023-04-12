@@ -26,12 +26,10 @@ export default class Form extends Component {
     this.setState({ country: val });
     this.setState({ zipcode: "" });
   }
-  // setZipcode(event) {
-  //   this.setState({ zipcode: event.target.value });
-  // }
-  // setName(event) {
-  //   this.setState({ name: event.target.value });
-  // }
+  
+  setName(event) {
+    this.setState({ name: event.target.value });
+  }
 
   setEmail(event) {
     this.setState({ email: event.target.value });
@@ -44,20 +42,18 @@ export default class Form extends Component {
   handleSubmit() {
     this.setState({ loading: true });
 
-    ApiService.submit(
-      this.state.name,
-      this.state.email,
-      this.state.country,
-      this.state.motivation,
-    )
-      .then((res) => {
-        this.resetForm();
-        toast.success("Your Request was successfull!");
-      })
-      .catch((err) => {
-        this.resetForm();
-        toast.error("Error summiting request, Try again!");
-      });
+  //   window.Email.send({
+  //     Host : "smtp.elasticemail.com",
+  //     Username : "username",
+  //     Password : "password",
+  //     To : 'them@website.com',
+  //     From : "you@isp.com",
+  //     Subject : "This is the subject",
+  //     Body : "And this is the body"
+  // }).then(
+  //   message => alert(message)
+  // );
+
   }
 
   render() {
