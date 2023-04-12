@@ -14,16 +14,16 @@ export default class Marquee extends Component {
   componentDidMount() {
     ApiService.getSubmissions()
       .then((res) => {
-        this.setState({ data: [] });
+        this.setState({ data: 'Mr. Adetayo Koleosho, Mr. and Mrs Tope and Sammy Ojofeitimi, Mr. Chris Ayadiuno, Mr. Gbeke Oyede, Mr. Dimeji Allen-Taylor, Mr. Samson Lawal, Dr. Adeyinka Adenekan, Dr. Adetokunbo Oyetunji, Mr. Sonny Ogunseye, Mr. Ayo Jibowu, Mr. Lanre Anibaba, Mr. Tunde Adegbenro'.split(', ') });
         let marquee = $(".marquee");
-        let marqueeLength = marquee.width() - 200;
+        let marqueeLength = marquee.width() - 150;
         let counter = parseInt($(".marquee").css("marginLeft"));
 
         this.dx = setInterval(() => {
           if (counter + marqueeLength <= 2) {
-            counter = 150;
+            counter = 100;
           }
-          $(".marquee").animate({ marginLeft: counter }, 150);
+          $(".marquee").animate({ marginLeft: counter }, 100);
           counter -= 5;
         }, 101);
       })
@@ -44,9 +44,7 @@ export default class Marquee extends Component {
         <div className="add" key={item.id}>
           <div className="text">
             <li>
-              {item.name + " (" + item.country + ")"} -{" "}
-              {item.message ? item.message : item.comment}
-              {""}
+              {item}
             </li>
           </div>
         </div>

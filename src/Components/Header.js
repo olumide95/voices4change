@@ -27,7 +27,7 @@ class Header extends Component {
             className="btn btn-transparent-home donate no-outline"
             type="submit"
           >
-            <form action="https://www.paypal.com/donate" method="post" target="_top">
+            <form action="#" method="post" target="_top">
                 <input type="hidden" name="business" value="F5SC6HKPK8CWU" />
                 <input type="hidden" name="no_recurring" value="0" />
                 <input type="hidden" name="currency_code" value="USD" />
@@ -68,7 +68,7 @@ class Header extends Component {
             <button
               className="btn btn-transparent-home donate top-btn no-outline my-2 my-sm-0"
             >
-              <form action="https://www.paypal.com/donate" method="post" target="_top">
+              <form action="#" method="post" target="_top">
                 <input type="hidden" name="business" value="F5SC6HKPK8CWU" />
                 <input type="hidden" name="no_recurring" value="0" />
                 <input type="hidden" name="currency_code" value="USD" />
