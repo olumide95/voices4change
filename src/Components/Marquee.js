@@ -12,36 +12,36 @@ export default class Marquee extends Component {
   }
 
   componentDidMount() {
-    // ApiService.getSubmissions()
-    //   .then((res) => {
-    //     this.setState({ data: 'Mr. Adetayo Koleosho, Mr. and Mrs Tope and Sammy Ojofeitimi, Mr. Chris Ayadiuno, Mr. Gbeke Oyede, Mr. Dimeji Allen-Taylor, Mr. Samson Lawal, Dr. Adeyinka Adenekan, Dr. Adetokunbo Oyetunji, Mr. Sonny Ogunseye, Mr. Ayo Jibowu, Mr. Lanre Anibaba, Mr. Tunde Adegbenro'.split(', ') });
-    //     let marquee = $(".marquee");
-    //     let marqueeLength = marquee.width() - 150;
-    //     let counter = parseInt($(".marquee").css("marginLeft"));
+    ApiService.getSubmissions()
+      .then((res) => {
+        this.setState({ data: 'Mr. Adetayo Koleosho, Mr. and Mrs Tope and Sammy Ojofeitimi, Mr. Chris Ayadiuno, Mr. Gbeke Oyede, Mr. Dimeji Allen-Taylor, Mr. Samson Lawal, Dr. Adeyinka Adenekan, Dr. Adetokunbo Oyetunji, Mr. Sonny Ogunseye, Mr. Ayo Jibowu, Mr. Lanre Anibaba, Mr. Tunde Adegbenro'.split(', ') });
+        let marquee = $(".marquee");
+        let marqueeLength = marquee.width() - 150;
+        let counter = parseInt($(".marquee").css("marginLeft"));
 
-    //     this.dx = setInterval(() => {
-    //       if (counter + marqueeLength <= 2) {
-    //         counter = 100;
-    //       }
-    //       $(".marquee").animate({ marginLeft: counter }, 100);
-    //       counter -= 5;
-    //     }, 101);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    this.setState({ data: 'Mr. Adetayo Koleosho, Mr. and Mrs Tope and Sammy Ojofeitimi, Mr. Chris Ayadiuno, Mr. Gbeke Oyede, Mr. Dimeji Allen-Taylor, Mr. Samson Lawal, Dr. Adeyinka Adenekan, Dr. Adetokunbo Oyetunji, Mr. Sonny Ogunseye, Mr. Ayo Jibowu, Mr. Lanre Anibaba, Mr. Tunde Adegbenro'.split(', ') });
-    let marquee = $(".marquee");
-    let marqueeLength = marquee.width() - 150;
-    let counter = parseInt($(".marquee").css("marginLeft"));
-
-    this.dx = setInterval(() => {
-      if (counter + marqueeLength <= 2) {
-        counter = 100;
-      }
-      $(".marquee").animate({ marginLeft: counter }, 100);
-      counter -= 5;
-    }, 101);
+        this.dx = setInterval(() => {
+          if (counter + marqueeLength <= 2) {
+            counter = 100;
+          }
+          $(".marquee").animate({ marginLeft: counter }, 100);
+          counter -= 5;
+        }, 101);
+      })
+      .catch((err) => {
+        this.setState({ data: 'Mr. Adetayo Koleosho, Mr. and Mrs Tope and Sammy Ojofeitimi, Mr. Chris Ayadiuno, Mr. Gbeke Oyede, Mr. Dimeji Allen-Taylor, Mr. Samson Lawal, Dr. Adeyinka Adenekan, Dr. Adetokunbo Oyetunji, Mr. Sonny Ogunseye, Mr. Ayo Jibowu, Mr. Lanre Anibaba, Mr. Tunde Adegbenro'.split(', ') });
+        let marquee = $(".marquee");
+        let marqueeLength = marquee.width() - 150;
+        let counter = parseInt($(".marquee").css("marginLeft"));
+    
+        this.dx = setInterval(() => {
+          if (counter + marqueeLength <= 2) {
+            counter = 100;
+          }
+          $(".marquee").animate({ marginLeft: counter }, 100);
+          counter -= 5;
+        }, 101);
+        console.log(err);
+      });
   }
 
   componentWillUnmount() {
