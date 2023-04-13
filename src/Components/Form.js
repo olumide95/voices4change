@@ -4,7 +4,6 @@ import { ApiService } from "../Services/Api.service";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Select from "react-select";
-import emailjs from 'emailjs-com';
 
 export default class Form extends Component {
   constructor(props) {
@@ -42,7 +41,7 @@ export default class Form extends Component {
   handleSubmit() {
     this.setState({ loading: true });
 
-    emailjs.send(process.env.REACT_APP_SERVICE_ID, 'template_hme759v', this.state,process.env.REACT_APP_EMAIL_PUB_KEY)
+    window.emailjs.send(process.env.REACT_APP_SERVICE_ID, 'template_hme759v', this.state,process.env.REACT_APP_EMAIL_PUB_KEY)
       .then((result) => {
          this.resetForm();
          toast.success("Your Response was successfull!");

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import emailjs from 'emailjs-com';
 export default class ContactUsForm extends Component {
   constructor(props) {
     super(props);
@@ -31,7 +30,7 @@ export default class ContactUsForm extends Component {
 
   handleSubmit() {
     this.setState({ loading: true });
-    emailjs.send(process.env.REACT_APP_SERVICE_ID, 'template_mve8lsx', this.state,process.env.REACT_APP_EMAIL_PUB_KEY)
+    window.emailjs.send(process.env.REACT_APP_SERVICE_ID, 'template_mve8lsx', this.state,process.env.REACT_APP_EMAIL_PUB_KEY)
       .then((result) => {
         this.resetForm();
         toast.success("Your Response was successfull!");
