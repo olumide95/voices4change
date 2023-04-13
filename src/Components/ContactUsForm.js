@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import emailjs from 'emailjs-com';
 export default class ContactUsForm extends Component {
   constructor(props) {
     super(props);
@@ -31,18 +31,16 @@ export default class ContactUsForm extends Component {
 
   handleSubmit() {
     this.setState({ loading: true });
-    //   window.Email.send({
-  //     Host : "smtp.elasticemail.com",
-  //     Username : "username",
-  //     Password : "password",
-  //     To : 'them@website.com',
-  //     From : "you@isp.com",
-  //     Subject : "This is the subject",
-  //     Body : "And this is the body"
-  // }).then(
-  //   message => alert(message)
-  // this.setState({ loading: false });
-  // );
+    emailjs.send(process.env.REACT_APP_SERVICE_ID, 'template_mve8lsx', this.state,process.env.REACT_APP_EMAIL_PUB_KEY)
+      .then((result) => {
+        this.resetForm();
+        toast.success("Your Response was successfull!");
+          console.log(result.text);
+      }, (error) => {
+        this.resetForm();
+        toast.error("Error summiting response, Try again!");
+          console.log(error.text);
+      });
   }
 
   render() {

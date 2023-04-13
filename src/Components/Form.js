@@ -4,16 +4,16 @@ import { ApiService } from "../Services/Api.service";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Select from "react-select";
+import emailjs from 'emailjs-com';
+
 export default class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
-      email: "",
+      to: "",
       country: "",
-      zipcode: "",
       motivation: "",
-      message: "",
       loading: false,
     };
 
@@ -32,7 +32,7 @@ export default class Form extends Component {
   }
 
   setEmail(event) {
-    this.setState({ email: event.target.value });
+    this.setState({ to: event.target.value });
   }
 
   setMotivation = (motivation) => {
@@ -42,18 +42,16 @@ export default class Form extends Component {
   handleSubmit() {
     this.setState({ loading: true });
 
-  //   window.Email.send({
-  //     Host : "smtp.elasticemail.com",
-  //     Username : "username",
-  //     Password : "password",
-  //     To : 'them@website.com',
-  //     From : "you@isp.com",
-  //     Subject : "This is the subject",
-  //     Body : "And this is the body"
-  // }).then(
-  //   message => alert(message)
-  // );
-
+    emailjs.send(process.env.REACT_APP_SERVICE_ID, 'template_hme759v', this.state,process.env.REACT_APP_EMAIL_PUB_KEY)
+      .then((result) => {
+         this.resetForm();
+         toast.success("Your Response was successfull!");
+          console.log(result.text);
+      }, (error) => {
+         this.resetForm();
+         toast.error("Error summiting response, Try again!");
+         console.log(error.text);
+      });
   }
 
   render() {
@@ -106,7 +104,7 @@ export default class Form extends Component {
         <div className="form-field">
           <label htmlFor="motivation" className="select form-label">
             <span className="form-label-content">
-              How would yout like to partner with us?
+              How would you like to partner with us?
             </span>
           </label>
           <Select
@@ -154,10 +152,10 @@ export default class Form extends Component {
             <input
               className="form-control"
               type="email"
-              name="email"
+              name="to"
               id="email"
               required
-              value={this.state.email}
+              value={this.state.to}
               onChange={(val) => this.setEmail(val)}
             />
           </div>
