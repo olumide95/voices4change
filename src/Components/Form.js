@@ -35,7 +35,7 @@ export default class Form extends Component {
   }
 
   setMotivation = (motivation) => {
-    this.setState({ motivation });
+    this.setState({ motivation: motivation.value });
   };
 
   handleSubmit() {
