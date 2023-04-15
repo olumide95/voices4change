@@ -5,7 +5,7 @@ export default class AboutBox extends Component {
 
     if (this.props.location.pathname !== "/") {
       document.getElementsByTagName("body")[0].style =
-        "background-size: 100% 310px; background-repeat: no-repeat; background-image: url(/about.jpg);";
+        "background-size: 100% 200px; background-repeat: no-repeat; background-image: url(/about.jpg);";
         
     } else {
       document.getElementsByTagName("body")[0].style =
